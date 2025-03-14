@@ -1,4 +1,4 @@
-# Mine Pump System - Real Object-Oriented Design
+# Mine Pump System - True Object-Oriented Design
 
 [![EO principles respected here](http://www.elegantobjects.org/badge.svg)](http://www.elegantobjects.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/fabriciofx/rockpaperscissors/blob/master/LICENSE.txt)
