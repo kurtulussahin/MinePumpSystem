@@ -26,6 +26,10 @@ The project is structured into several key classes:
 - **`SumpPump`** – Manages the actual pumping process.
 - **`MinePlant`** – Acts as a factory/builder to configure and instantiate the system.
 
+## Class Diagram
+- ![image](https://github.com/user-attachments/assets/10e8719e-232f-4a79-821c-b78ee80949fc)
+
+
 ## Running the Project
 To run the project, compile the Java files and execute the main entry point. Since this implementation focuses on a true OO design, it can be easily extended to integrate with actual hardware or simulations.
 
