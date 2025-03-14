@@ -8,6 +8,9 @@ public class MinePumpSystemTest {
             System.out.println("Döngü " + (count + 1) + "->");
 
             new MinePlant(
+                    new GasAlarm(
+                            new Alarm(new DigitalOutput("Gas Alarm")),
+                            new ThresholdGasSensor(20,new DigitalInput(new FakeInput()))),
                     new SumpPump(
                             new PumpEngine(new DigitalOutput("Engine")),
                             new SumpProbe(
