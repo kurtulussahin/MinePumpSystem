@@ -1,9 +1,9 @@
-public class LevelSensor {
+public class LevelSensor implements Sensor {
 
     private final int levelThreshold;
     private final DigitalInput digitalInput;
     private final String name;
-    private final DigitalOutput digitalOutput;
+    private final Output digitalOutput;
 
     public LevelSensor(String name, int levelThreshold, DigitalInput digitalInput) {
 
@@ -13,6 +13,7 @@ public class LevelSensor {
         this.digitalOutput = new DigitalOutput(this.name);
     }
 
+    @Override
     public boolean isOn() {
 
         int level = digitalInput.read();

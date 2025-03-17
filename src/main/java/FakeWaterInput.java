@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class FakeInput implements Input {
+public class FakeWaterInput implements Input {
 
     private int value;
 

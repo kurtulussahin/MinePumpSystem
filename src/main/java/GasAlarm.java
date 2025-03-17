@@ -1,18 +1,25 @@
-public class GasAlarm  {
+import java.util.List;
 
-    private final Alarm gasAlarm;
-    private final GasSensor gasSensor;
+public class GasAlarm implements GasMonitor {
 
-    public GasAlarm(Alarm alarm, GasSensor gasSensor) {
+    private final Siren gasAlarm;
+    private final List<GasSensor> gasSensors;
+
+    public GasAlarm(Siren alarm, List<GasSensor> gasSensors) {
 
         this.gasAlarm = alarm;
-        this.gasSensor = gasSensor;
-
+        this.gasSensors = gasSensors;
     }
 
+    @Override
     public void watch() {
-
-        if (gasSensor.isCritical()) {
+        boolean isCritical = false;
+        for (GasSensor gasSensor: gasSensors) {
+            if (gasSensor.isCritical()) {
+                isCritical = true;
+            }
+        }
+        if (isCritical) {
             gasAlarm.on();
         } else {
             gasAlarm.off();

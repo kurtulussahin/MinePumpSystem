@@ -12,14 +12,14 @@ The *Mine Pump* system is responsible for managing water levels in a mine while 
 - **Water Level Sensors:** Determines when to pump water out of the sump.
 - **Gas Sensors:** Monitors carbon monoxide, methane, and airflow.
 - **Pump:** Removes water when necessary but cannot operate under unsafe conditions.
-- **Alarm:** Triggers warnings when gas levels become critical or the pump fails.
+- **Siren:** Triggers warnings when gas levels become critical or the pump fails.
 
 The challenge is to implement this system without a monolithic controller, ensuring that each object encapsulates its own behavior.
 
 ## Implementation
 The project is structured into several key classes:
 
-- **`SumpProbe`** – Determines when pumping is required.
+- **`BasicSumpProbe`** – Determines when pumping is required.
 - **`GasSensor`** – Evaluates gas safety levels.
 - **`SafeEngine`** – Ensures the pump operates only when conditions are safe.
 - **`GasAlarm`** – Triggers alerts when hazardous conditions arise.

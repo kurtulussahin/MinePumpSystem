@@ -1,4 +1,4 @@
-public class DigitalOutput {
+public class DigitalOutput implements Output {
 
     private final String name;
 
@@ -7,6 +7,7 @@ public class DigitalOutput {
         this.name = name;
     }
 
+    @Override
     public void write(String value) {
 
        System.out.println(name +":"+ value);

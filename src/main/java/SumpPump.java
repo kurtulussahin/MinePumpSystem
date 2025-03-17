@@ -1,4 +1,4 @@
-public class SumpPump {
+public class SumpPump implements Pump {
 
     private final PumpEngine pumpEngine;
     private final SumpProbe sumpProbe;
@@ -9,7 +9,8 @@ public class SumpPump {
         this.sumpProbe = sumpProbe;
     }
 
-    void drain() {
+    @Override
+    public void drain() {
 
         if (sumpProbe.mustDrain()) {
             pumpEngine.on();

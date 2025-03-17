@@ -1,13 +1,14 @@
-public class COSensor implements GasSensor {
+public class MethaneSensor implements GasSensor {
+
 
     private final DigitalInput digitalInput;
     private final int threshold;
     private final Output digitalOutput;
 
-    public COSensor(int threshold, DigitalInput digitalInput) {
+    public MethaneSensor(int threshold, DigitalInput digitalInput) {
         this.digitalInput=digitalInput;
         this.threshold = threshold;
-        this.digitalOutput = new DigitalOutput("CO Sensor");
+        this.digitalOutput = new DigitalOutput("Methane Sensor");
 
     }
 
@@ -18,4 +19,5 @@ public class COSensor implements GasSensor {
         return level > threshold;
 
     }
+
 }
