@@ -13,12 +13,12 @@ public class BasicSumpProbe implements SumpProbe {
     }
 
     @Override
-    public boolean mustDrain() {
+    public boolean mustDrain(Sump sump) {
 
-        if (maxLevelSensor.isOn()) {
+        if (maxLevelSensor.isOn(sump)) {
             digitalOutput.write("💧 Su seviyesi yüksek!");
             mustDrain[0]=true;
-        } else if (minLevelSensor.isOn()) {
+        } else if (minLevelSensor.isOn(sump)) {
             digitalOutput.write("💧 Su seviyesi takip seviyesinde!");
         } else {
             digitalOutput.write("💧 Su seviyesi güvenli!");

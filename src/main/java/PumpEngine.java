@@ -1,4 +1,4 @@
 public interface PumpEngine {
-    void on();
+    void on(Sump sump);
     void off();
 }

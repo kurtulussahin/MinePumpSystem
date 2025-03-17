@@ -1,3 +1,3 @@
 public interface Pump {
-    void drain();
+    void drain(Sump sump);
 }

@@ -1,3 +1,3 @@
 public interface Sensor {
-    boolean isOn();
+    boolean isOn(Environment environment);
 }

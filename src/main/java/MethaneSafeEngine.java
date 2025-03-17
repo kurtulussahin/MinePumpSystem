@@ -8,14 +8,15 @@ public class MethaneSafeEngine implements PumpEngine {
         this.pumpEngine = pumpEngine;
     }
 
-    public void on() {
+    public void on(Sump sump) {
         if (methaneSensor.isCritical()) {
             System.out.println("Critical methane level! Turning off the engine...");
             this.pumpEngine.off();
             return;
         }
-        this.pumpEngine.on();
+        this.pumpEngine.on(sump);
     }
+
 
     public void off() {
         this.pumpEngine.off();
