@@ -5,6 +5,7 @@ public class MinePumpSystemTest {
 
     public static void main(String[] args) {
 
+        Environment environment = new Sump();
 
         new CoalMine(
                 new MinePlant(
@@ -17,17 +18,16 @@ public class MinePumpSystemTest {
                                 )),
                         new SumpPump(
                                 new MethaneSafeEngine(
-                                        new MethaneSensor(90,
+                                        new MethaneSensor(80,
                                                 new BasicDigitalInput(
                                                         new FakeGasInput())),
-                                        new BasicPumpEngine(new DigitalOutput("Engine"))),
+                                        new BasicPumpEngine(new DigitalOutput("Engine"), environment)),
                                 new BasicSumpProbe(
-                                        new LevelSensor("Min Water Level Sensor", 40, new BasicDigitalInput()),
-                                        new LevelSensor("Max Water Level Sensor", 90, new BasicDigitalInput())
+                                        new LevelSensor("Min Water Level Sensor", 40, new BasicDigitalInput(environment)),
+                                        new LevelSensor("Max Water Level Sensor", 90, new BasicDigitalInput(environment))
                                 )
                         )
-                ),
-                new Sump()
+                ), environment
         ).operate();
 
 

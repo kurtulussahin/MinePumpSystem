@@ -1,22 +1,19 @@
 public class BasicDigitalInput implements DigitalInput {
 
-    private final Input input;
+    private final Environment environment;
 
-    BasicDigitalInput(Input input) {
-        this.input = input;
-    }
-    BasicDigitalInput() {
-        this.input =new WaterInput();
+    BasicDigitalInput(Environment environment) {
+        this.environment =environment;
     }
 
     @Override
     public int read(Environment environment) {
-        return environment.level();
+        return environment.value();
     }
 
     @Override
     public int read() {
-        return input.value();
+        return environment.value();
     }
 
 }

@@ -14,9 +14,9 @@ public class LevelSensor implements Sensor {
     }
 
     @Override
-    public boolean isOn(Environment environment) {
+    public boolean isOn() {
 
-        int level = digitalInput.read(environment);
+        int level = digitalInput.read();
         if (level >= levelThreshold) {
             digitalOutput.write("On" + " | Level: " + level);
             return true;

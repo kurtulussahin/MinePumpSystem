@@ -1,9 +1,9 @@
 public class CoalMine implements Mine {
 
     private final Plant minePlant;
-    private final Sump sump;
+    private final Environment sump;
 
-    public CoalMine(Plant minePlant, Sump sump) {
+    public CoalMine(Plant minePlant, Environment sump) {
         this.minePlant = minePlant;
         this.sump = sump;
     }
@@ -15,7 +15,7 @@ public class CoalMine implements Mine {
             System.out.println("Döngü " + (count + 1) + "->");
 
             sump.live(5);
-            minePlant.run(sump);
+            minePlant.run();
 
             count++;
         }

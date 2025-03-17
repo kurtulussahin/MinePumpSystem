@@ -12,10 +12,10 @@ public class SumpPump implements Pump {
     }
 
     @Override
-    public void drain(Sump sump) {
+    public void drain() {
 
-        if (sumpProbe.mustDrain(sump)) {
-            pumpEngine.on(sump);
+        if (sumpProbe.mustDrain()) {
+            pumpEngine.on();
         } else {
             pumpEngine.off();
         }

@@ -12,11 +12,15 @@ public class MinePlant implements Plant {
     }
 
     @Override
-    public void run(Sump sump) {
+    public void run() {
 
-
-            sumpPump.drain(sump);
+        int count = 0;
+        while (count < 100) {
+            System.out.println("Döngü " + (count + 1) + "->");
+            sumpPump.drain();
             gasAlarm.watch();
+            count++;
+        }
 
     }
 }

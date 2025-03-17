@@ -1,3 +1,3 @@
 public interface SumpProbe {
-    boolean mustDrain(Sump sump);
+    boolean mustDrain();
 }

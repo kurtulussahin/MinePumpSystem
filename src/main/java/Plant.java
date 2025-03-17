@@ -1,3 +1,3 @@
 public interface Plant {
-    void run(Sump sump);
+    void run();
 }
