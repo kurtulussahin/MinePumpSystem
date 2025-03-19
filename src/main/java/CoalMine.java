@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public class CoalMine implements Mine {
 
     private final Plant minePlant;
@@ -12,6 +14,11 @@ public class CoalMine implements Mine {
     public void operate() {
         int count = 0;
         while (count < 100) {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             System.out.println("Döngü " + (count + 1) + "->");
 
             sump.live(5);
