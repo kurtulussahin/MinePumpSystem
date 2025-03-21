@@ -3,7 +3,7 @@ public class LevelSensor implements Sensor {
     private final int levelThreshold;
     private final Environment environment;
 
-    public LevelSensor(String name, int levelThreshold, Environment environment) {
+    public LevelSensor(int levelThreshold, Environment environment) {
 
         this.levelThreshold = levelThreshold;
         this.environment = environment;

@@ -1,21 +1,27 @@
-public class COSensor implements GasSensor {
+public class COSensor implements GasSensor, Sensor {
 
-    private final DigitalInput digitalInput;
+    private final Environment environment;
     private final int threshold;
-    private final Output digitalOutput;
 
-    public COSensor(int threshold, DigitalInput digitalInput) {
-        this.digitalInput=digitalInput;
+    public COSensor(int threshold, Environment environment) {
+        this.environment=environment;
         this.threshold = threshold;
-        this.digitalOutput = new DigitalOutput("CO Sensor");
-
     }
 
     @Override
     public boolean isCritical() {
-        int level = digitalInput.read();
-        digitalOutput.write("The level is " + level);
+        int level = environment.co();
         return level > threshold;
 
+    }
+
+    @Override
+    public boolean isOn() {
+        return threshold>environment.co();
+    }
+
+    @Override
+    public int sense() {
+        return environment.co();
     }
 }

@@ -4,7 +4,7 @@ public class MinePumpSystemTest {
 
     public static void main(String[] args) {
 
-        Environment sump = new Sump();
+        Environment coalMineEnvironment = new CoalMineEnvironment();
 
         new CoalMine(
                 new MinePlant(
@@ -12,20 +12,20 @@ public class MinePumpSystemTest {
                                 new Siren(new DigitalOutput("Gas Alarm")),
                                 List.of(
                                         new AirFlowSensor(10, new BasicDigitalInput(new FakeGasInput())),
-                                        new MethaneSensor(60, sump),
-                                        new COSensor(80, new BasicDigitalInput(new FakeGasInput()))
+                                        new MethaneSensor(60, coalMineEnvironment),
+                                        new COSensor(80, coalMineEnvironment)
                                 )),
                         new SumpPump(
                                 new MethaneSafeEngine(
-                                        new MethaneSensor(60, sump), new LoggingEngine(
-                                        new PumpEngine(sump))),
+                                        new MethaneSensor(60, coalMineEnvironment), new LoggingEngine(
+                                        new PumpEngine(coalMineEnvironment))),
                                 new LevelSumpProbe(
                                         new BasicSumpProbe(
-                                                new LevelSensor("Min Water Level Sensor", 10, sump),
-                                                new LevelSensor("Max Water Level Sensor", 90, sump)
-                                        ), new LoggingFloatLevelSensor(new FloatLevelSensor(0, sump)))
+                                                new LevelSensor(10, coalMineEnvironment),
+                                                new LevelSensor(90, coalMineEnvironment)
+                                        ), new LoggingFloatLevelSensor(new FloatLevelSensor(0, coalMineEnvironment)))
                         )
-                ), sump
+                ), coalMineEnvironment
         ).operate();
 
 

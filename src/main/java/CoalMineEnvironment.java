@@ -1,22 +1,10 @@
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Random;
 
-@Entity
-@Table(name = "sump")
-public class Sump implements Environment{
+public class CoalMineEnvironment implements Environment{
 
-public Sump(){
-
-
-
+public CoalMineEnvironment(){
 }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id= 0L;  // Primary Key eklenmeli
-
-    @Column(nullable = false)
+    
     private int level =0;
 
     public void live(int rate) {
@@ -34,6 +22,11 @@ public Sump(){
 
     @Override
     public int methane() {
+        return new Random().nextInt(100);
+    }
+
+    @Override
+    public int co() {
         return new Random().nextInt(100);
     }
 

@@ -4,6 +4,7 @@ public interface Environment {
     void drain(int rate);
     int value();
     int methane();
+    int co();
     int liquidLevel();
 
 }
