@@ -1,12 +1,12 @@
 public class SumpPump implements Pump {
 
-    private final PumpEngine pumpEngine;
+    private final Engine engine;
     private final SumpProbe sumpProbe;
 
 
-    public SumpPump(PumpEngine pumpEngine, SumpProbe sumpProbe) {
+    public SumpPump(Engine engine, SumpProbe sumpProbe) {
 
-        this.pumpEngine = pumpEngine;
+        this.engine = engine;
         this.sumpProbe = sumpProbe;
 
     }
@@ -15,9 +15,9 @@ public class SumpPump implements Pump {
     public void drain() {
 
         if (sumpProbe.mustDrain()) {
-            pumpEngine.on();
+            engine.on();
         } else {
-            pumpEngine.off();
+            engine.off();
         }
     }
 }

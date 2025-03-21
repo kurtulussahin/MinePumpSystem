@@ -1,12 +1,12 @@
 public class MethaneSensor implements GasSensor {
 
 
-    private final DigitalInput digitalInput;
+    private final Environment environment;
     private final int threshold;
     private final Output digitalOutput;
 
-    public MethaneSensor(int threshold, DigitalInput digitalInput) {
-        this.digitalInput=digitalInput;
+    public MethaneSensor(int threshold, Environment environment) {
+        this.environment=environment;
         this.threshold = threshold;
         this.digitalOutput = new DigitalOutput("Methane Sensor");
 
@@ -14,7 +14,8 @@ public class MethaneSensor implements GasSensor {
 
     @Override
     public boolean isCritical() {
-        int level = digitalInput.read();
+        int level = environment.methane();
+        new MethaneLevelData(level);
         digitalOutput.write("The level is " + level);
         return level > threshold;
 

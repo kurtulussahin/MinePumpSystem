@@ -1,9 +1,9 @@
-public class LevelSensor implements Sensor {
+public class FloatLevelSensor implements Sensor{
 
     private final int levelThreshold;
     private final Environment environment;
 
-    public LevelSensor(String name, int levelThreshold, Environment environment) {
+    public FloatLevelSensor(int levelThreshold, Environment environment) {
 
         this.levelThreshold = levelThreshold;
         this.environment = environment;
@@ -11,8 +11,7 @@ public class LevelSensor implements Sensor {
 
     @Override
     public boolean isOn() {
-
-        int level = environment.value();
+        int level = environment.liquidLevel();
         if (level >= levelThreshold) {
             return true;
         }else {
@@ -22,10 +21,6 @@ public class LevelSensor implements Sensor {
 
     @Override
     public int sense() {
-        if(isOn()) {
-            return levelThreshold;
-        }else{
-            return 0;
-        }
+        return environment.liquidLevel();
     }
 }

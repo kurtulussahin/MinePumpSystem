@@ -1,24 +1,24 @@
-public class MethaneSafeEngine implements PumpEngine {
+public class MethaneSafeEngine implements Engine {
 
     private final GasSensor methaneSensor;
-    private final PumpEngine pumpEngine;
+    private final Engine engine;
 
-    public MethaneSafeEngine(GasSensor methaneSensor, PumpEngine pumpEngine) {
+    public MethaneSafeEngine(GasSensor methaneSensor, Engine engine) {
         this.methaneSensor = methaneSensor;
-        this.pumpEngine = pumpEngine;
+        this.engine = engine;
     }
 
     public void on() {
         if (methaneSensor.isCritical()) {
             System.out.println("Critical methane level! Turning off the engine...");
-            this.pumpEngine.off();
+            this.engine.off();
             return;
         }
-        this.pumpEngine.on();
+        this.engine.on();
     }
 
 
     public void off() {
-        this.pumpEngine.off();
+        this.engine.off();
     }
 }

@@ -22,5 +22,8 @@
 
         <!-- Burada entity'yi tanıtıyoruz -->
         <mapping class="Sump"/>
+        <mapping class="FloatLevelSensorData"/>
+        <mapping class="MethaneLevelData"/>
+        <mapping class="EngineData"/>
     </session-factory>
 </hibernate-configuration>
